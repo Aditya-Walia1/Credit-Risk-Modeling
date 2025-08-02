@@ -1,42 +1,63 @@
-# A Complete Cycle of Credit Risk Modelling 
+# Credit Risk Modeling: PD, LGD, EAD & Expected Loss
 
-As a Machine learning project, We aim to use data science techniques to model three important notions in Credit risk management :
-Probability of Default (PD), Loss Given Default (LGD - Recovery rate) and Exposure at Default (EAD - CCF).
+Understanding and managing credit exposure is central to modern financial systems. This project presents a modular framework for assessing credit risk by estimating core risk components and simulating expected losses based on customer-level financial data.
 
-The data set used for this purpose, is a <b>portofolio of 466285 loans</b> open-source data (on Kaggle) and our purpose is to build models that are compliant with Basel II and Basel III Bank's regulations.
+---
 
-The Data set is well described in the DataPreparation file !!! And there is a link to download it. The data are from 2007 - 2014. and we use year 2015 to monotor the obtained PD model. 
+## 🔍 Project Highlights
 
-At the end of this work, we compute the <b>Expected Loss (EL)</b> and the <b>Regulatory Capital (F- IRB) </b>  that will be expected by the regulations for this loans portfolio.
+- Modeled **Probability of Default (PD)** using logistic regression  
+- Estimated **Loss Given Default (LGD)** via linear regression techniques  
+- Predicted **Exposure at Default (EAD)** using relevant borrower and loan features  
+- Combined the outputs to compute **Expected Loss** and simulate credit exposure  
+- Incorporated **regulatory capital logic** for stress-adjusted scenarios  
+- Designed a scoring structure to monitor default risk across segments
 
-<b>RESULTS : </b> We obtain for this loans portfolio with a total amount of <b> 6.67 Billlions<b>  (see the file LGD-EAD EL-RegCap)
->>>>>>> The <b>Expected Loss</b> is approximatively <b>7.6 %</b> of the portfolio total amount, that is <b>511.66 Millions</b>
->>>>>>> The Regulatory capital is approximatively <b>5.3 %</b> of the portfolio total amount, that is <b>357.79 Millions</b>\
+---
 
-The main Data Science techniques used in this project are :
+## 📊 Methodology
 
-- Weight of evidence   - Information value   - Fine classing   - Coarse classing   - Linear regression - Logistic regression
+- Data Cleaning & Feature Engineering  
+- Handling class imbalance using synthetic sampling  
+- Regression modeling for PD, LGD, and EAD  
+- Metric evaluation using ROC-AUC, RMSE, decile performance  
+- Final aggregation to simulate exposure and credit loss distribution
 
-- Area Under the Curve  - Receiver Operating Characteristic Curve - Gini Coefficient - Kolmogorov-Smirnov - Assessing Population Stability
+---
 
+## 🛠️ Tools & Libraries
 
-The work is subdivide as it follows :
+- Python (pandas, numpy, scikit-learn)
+- Matplotlib & Seaborn for visual analytics
+- Imbalanced-learn for SMOTE techniques
 
->>>> <b> I - DATA PREPARATION </b>
-      
-            Import, Explore, Preprocess (formatting, dealing with missing values..)
- 
->>>> <b> II - PD Model </b>
-           
-         - Data Preparation : format Independent / Dependent variables, identification of Good (non-defaulter)/ Bad (defaulter)
-         - We will use the Logistic Regression model to estimate the PD
-         - A section will cover PD monitoring
-    
->>>> <b> III - LGD Model </b>
+---
 
-         - We will use a two stage model : First stage , Logistic Regression and at the secong stage Linear Regression 
+## 📈 Sample Outputs
 
->>>> <b>  - EAD Model </b>
-                    
-         - We will use a Linear Regression modeling
+> 📌 *Add screenshots here after running notebooks locally*
 
+- ROC Curve for Default Probability  
+- Expected Loss heatmap across risk tiers  
+- Default probability distribution  
+- Borrower segmentation by score decile
+
+---
+
+## 🧩 Business Relevance
+
+The modeling logic reflects real-world practices used in credit risk functions across banking institutions. With scalable structure and interpretable metrics, the framework is adaptable for regulatory, operational, or capital forecasting purposes.
+
+---
+
+## 📁 Repository Structure
+
+```bash
+├── data/                           # Raw and processed data
+├── notebooks/                     
+│   ├── PD_Model.ipynb             # Logistic regression model
+│   ├── LGD_Model.ipynb            # Linear regression for LGD
+│   ├── EAD_Model.ipynb            # EAD estimation
+│   └── Expected_Loss.ipynb        # Final aggregation
+├── visuals/                       # Screenshots and plots
+├── README.md
